@@ -6,8 +6,10 @@ var  mqttmod = {
 			client.subscribe(subtopic, function (err) {
 				if (!err) {
 					client.publish(subtopic, topicmessage)
-					client.end()
-					callback();
+					client.end();
+					if (typeof(callback) === 'function') {
+						callback();
+					}
 				}
 			})
 		})
