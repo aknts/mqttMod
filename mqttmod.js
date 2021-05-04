@@ -1,7 +1,7 @@
 var  mqttmod = {
 	send: function(host, subtopic, topicmessage, callback){
-		var mqtt = require('mqtt')
-		var client  = mqtt.connect(host)
+		var mqtt = require('mqtt');
+		var client  = mqtt.connect(host);
 		client.on('connect', function () {
 			client.subscribe(subtopic, function (err) {
 				if (!err) {
