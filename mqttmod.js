@@ -7,6 +7,8 @@ var  mqttmod = {
 				if (!err) {
 					client.publish(subtopic, topicmessage)
 					client.end();
+					client = null;
+					topicmessage = null;
 					if (typeof(callback) === 'function') {
 						callback();
 					}
